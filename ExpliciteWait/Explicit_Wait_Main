@@ -1,0 +1,14 @@
+package com.jbk.ecplicitwaitmain;
+
+import com.jbk.ecplicitwait.Explicit_Wait;
+
+public class Explicit_Wait_Main {
+
+	public static void main(String[] args) {
+
+		Explicit_Wait exwait=new Explicit_Wait();
+		exwait.driversetting();
+		exwait.explicit();
+	}
+
+}
