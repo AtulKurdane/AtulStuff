@@ -1,0 +1,13 @@
+package com.jbk.sheetdata;
+
+import com.jbk.excelsheetdata.Data_From_ExcelSheet;
+
+public class Main_Excel_Data {
+
+	public static void main(String[] args) {
+
+		Data_From_ExcelSheet obj=new Data_From_ExcelSheet();
+		obj.ReadExcelSheet();
+	}
+
+}
