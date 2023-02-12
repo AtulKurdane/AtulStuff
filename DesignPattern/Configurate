@@ -1,0 +1,19 @@
+package com.jbk.configuration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Configurate {
+	
+	WebDriver driver;
+	
+	public void driversetting(String url){
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();	
+		driver.get(url);		
+	}
+	public void signin(){
+		driver.findElement(By.xpath("/html/body/div/div[2]/form/div[1]/input")).sendKeys("kiran@gmail.com");
+	}
+}
