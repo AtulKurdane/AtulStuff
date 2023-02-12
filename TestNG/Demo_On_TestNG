@@ -1,0 +1,68 @@
+package com.jbk.testng;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class Demo_On_TestNG {
+	
+	@BeforeSuite
+	public void beforesuit(){
+		System.out.println("------BeforeSuit--------");
+	}
+	
+	@BeforeClass
+	public void beforeclass(){
+		System.out.println("-------BeforeClass---------");
+	}
+	
+	@BeforeMethod
+	public void beforemethod(){
+		System.out.println("--------BeforMethod----------");
+	}
+	
+	@AfterMethod
+	public void aftermethod(){
+		System.out.println("---------AfterMethod---------");
+	}
+	
+	@Test(priority=1)
+	public void alogintest(){
+		System.out.println("You are in Logintest Case");
+	}
+	
+	@Test(priority=3)
+	public void slogintest(){
+		System.out.println("You are in Slogintest case");
+	}
+	
+	@Test(priority=2)
+	public void mlogintest(){
+		System.out.println("You are in Mlogintest case");
+	}
+	 
+	@AfterTest
+	public void aftertest(){
+		System.out.println("--------AfterTest--------");
+	}
+	
+	@AfterClass
+	public void afterclass(){
+		System.out.println("---------AfterClass------------");
+	}
+	
+	@AfterSuite
+	public void aftersuite(){
+		System.out.println("--------AfterSuite--------");
+	}
+	
+	
+	
+	
+
+}
