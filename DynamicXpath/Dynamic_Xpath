@@ -1,0 +1,32 @@
+package com.jbk.dynamicxpath;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Dynamic_Xpath {
+	WebDriver driver;
+	
+	public void Setdriver(String url){
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get(url);
+	}
+	public void SearchElement(){
+		driver.findElement(By.xpath("//table[@id='tblcrtac']/tbody/tr[3]/td[3]/input")).sendKeys("Atul Kurdane");
+		driver.findElement(By.xpath("//table[@id='tblcrtac']/tbody/tr[7]/td[3]/input[1]")).sendKeys("atul@rediffmail.com");
+		driver.findElement(By.xpath("//input[contains(@name,'passwd')]")).sendKeys("atul@123");
+		driver.findElement(By.xpath("//input[starts-with(@name,'confirm')]")).sendKeys("atul@123");
+		driver.findElement(By.xpath("//a[starts-with(@class,'f12')]")).click();	
+	}
+	public void ElementFollowing(){
+		//driver.findElement(By.xpath("(//div[@id='HEADBAND0']//following::li)//a")).click();
+		//driver.findElement(By.xpath("//div[@id='HEADBAND0']//following::li[3]//a")).click();
+		//driver.findElement(By.xpath("//div[@id='HEADBAND0']//child::li[3]//a")).click();
+		driver.findElement(By.xpath("//div[@id='HEADBAND0']//child::li[3]//following::li[2]//a")).click();
+
+
+	}
+	
+	
+}
