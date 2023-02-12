@@ -1,0 +1,27 @@
+package com.jbk.propertyfile;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import com.jbk.config.Configure;
+
+public class Properties_File {
+
+	public static void main(String[] args) throws IOException {
+		
+		Configure con=new Configure();
+		
+
+		FileInputStream fis=new FileInputStream("C:\\config\\file.properties");
+		Properties props=new Properties();
+		props.load(fis);
+		System.out.println(props.getProperty("name"));
+		System.out.println(props.getProperty("password"));
+		System.out.println(props.getProperty("city"));
+     	System.out.println(props.getProperty("url"));
+		con.driversetting(props.getProperty("url"));
+
+	}
+
+}
