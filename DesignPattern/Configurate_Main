@@ -1,0 +1,15 @@
+package com.jbk.main;
+
+import com.jbk.configuration.Configurate;
+
+public class MainMethod {
+
+	public static void main(String[] args) {
+	
+		Configurate con=new Configurate();
+		con.driversetting("file:///D:/Selenium%20Software/Offline%20Website/index.html");
+		con.signin();
+
+	}
+
+}
