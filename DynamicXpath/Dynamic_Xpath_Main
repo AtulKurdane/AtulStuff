@@ -1,0 +1,17 @@
+package com.jbk.dynamicxpathmain;
+
+import com.jbk.dynamicxpath.Dynamic_Xpath;
+
+public class Dynamicxpath_Main {
+
+	public static void main(String[] args) {
+		
+		Dynamic_Xpath obj=new Dynamic_Xpath();
+		//obj.Setdriver("http://register.rediff.com/register/register.php?FormName=user_details");
+		//obj.SearchElement();
+		obj.Setdriver("https://www.att.com/");
+		obj.ElementFollowing();
+
+	}
+
+}
