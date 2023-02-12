@@ -1,0 +1,32 @@
+package com.jbk.ecplicitwait;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Explicit_Wait {
+	WebDriver driver;
+	
+	public void driversetting(){
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		 driver=new ChromeDriver();
+		driver.get("https://www.qa.jbktest.com/");
+		
+	}
+	public void explicit(){
+		driver.switchTo().frame("webform");
+		try {
+			Thread.sleep(10000);
+			driver.findElement(By.xpath("//*[@id='webform_preview']/div")).click();
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		WebDriverWait waitdriver=new WebDriverWait(driver,8);
+//		
+//		waitdriver.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='webform_preview']/div"))).click();
+	}
+
+}
