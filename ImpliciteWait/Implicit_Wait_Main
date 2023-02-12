@@ -1,0 +1,15 @@
+package com.jbk.implicitwaitmain;
+
+import com.jbk.implicitwait.Implicit_Wait;
+
+public class Implicit_Wait_Main {
+
+	public static void main(String[] args) {
+		Implicit_Wait impwait=new Implicit_Wait();
+		impwait.driversetting("https://www.google.com/");
+		impwait.search();
+		impwait.searchjbk();
+
+	}
+
+}
