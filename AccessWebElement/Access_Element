@@ -1,0 +1,104 @@
+package com.jbk.accesselement;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Access_Element {
+
+	public static void main(String[] args) {
+
+		System.getProperty("webdriver.chrome.driver", "chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("file:///D:/Selenium%20Software/Offline%20Website/index.html");
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+		//System.out.println(driver.getPageSource());
+		
+
+		WebElement email_element=driver.findElement(By.xpath("//*[@id='email']"));
+		//email_element.sendKeys("atul");
+		email_element.sendKeys("kiran@gmail.com");
+
+		WebElement mail_element=driver.findElement(By.xpath("//*[@id='password']"));
+		//mail_element.sendKeys("atul123");
+		mail_element.sendKeys("123456");
+
+		driver.findElement(By.xpath("//*[@id='form']/div[3]/div/button")).click();
+
+		String dashboard_text=driver.findElement(By.xpath("/html/body/div/div[1]/section[1]/h1")).getText();
+		System.out.println(dashboard_text);
+		System.out.println(	dashboard_text.substring(0, 9));
+
+		driver.findElement(By.xpath("/html/body/div/aside/section/ul/li[3]/a")).click();
+
+		driver.findElement(By.xpath("/html/body/div[1]/div[1]/section[2]/div/div/div/div[1]/a/button")).click();
+
+		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("Atul kurdane");
+
+		driver.findElement(By.xpath("//*[@id='mobile']")).sendKeys("9604760999");
+
+		driver.findElement(By.xpath("//*[@id='email']")).sendKeys("kurdaneatul@gmail.com");
+
+		driver.findElement(By.xpath("//*[@id='course']")).sendKeys("java");
+
+		driver.findElement(By.xpath("//*[@id='Male']")).click();
+
+		//WebElement dropdown=driver.findElement(By.xpath("/html/body/div/div[1]/section[2]/div/div/div/form/div[1]/div[6]/div/select"));
+
+		//Select state=new Select(dropdown);
+
+		//state.selectByVisibleText("Maharashtra");
+
+		Select dropselect=new Select(driver.findElement(By.xpath("/html/body/div/div[1]/section[2]/div/div/div/form/div[1]/div[6]/div/select")));
+
+		dropselect.selectByVisibleText("HP");
+
+		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("atul123");
+
+
+		driver.findElement(By.xpath("/html/body/div/div[1]/section[2]/div/div/div/form/div[3]/div/input")).sendKeys("9865475621");
+
+		driver.findElement(By.xpath("//*[@id='submit']")).click();
+		
+		Alert alert=driver.switchTo().alert();
+		
+		alert.accept();
+		
+		driver.switchTo().defaultContent();
+		
+		driver.findElement(By.xpath("/html/body/div/aside[1]/section/ul/li[3]/a")).click();
+		
+		driver.findElement(By.xpath("/html/body/div[1]/aside/section/ul/li[2]/a")).click();
+		
+		driver.findElement(By.xpath("/html/body/div/header/a/span[2]")).click();
+		
+		String heading=driver.findElement(By.xpath("/html/body/div/header/a/span[2]/b")).getText();
+		
+		System.out.println(heading);
+		
+		driver.findElement(By.xpath("/html/body/div/aside/section/ul/li[4]/a")).click();
+		
+		driver.findElement(By.xpath("/html/body/div/aside[1]/section/ul/li[5]/a")).click();
+		
+		driver.findElement(By.xpath("/html/body/div/aside[1]/section/ul/li[6]/a")).click();
+		
+		driver.findElement(By.xpath("/html/body/div/aside[1]/section/ul/li[7]/a")).click();
+		
+		driver.findElement(By.xpath("//*[@id='email']")).sendKeys("kiran@gmail.com");
+		
+		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("123456");
+		
+		driver.findElement(By.xpath("//*[@id='form']/div[3]/div/button")).click();
+		
+		driver.findElement(By.xpath("/html/body/div/div[1]/section[2]/div/div[1]/div/a")).click();
+		
+		driver.manage().window().maximize();
+	
+		
+	}
+
+}
