@@ -1,0 +1,26 @@
+package com.jbk.dataprovider;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Data_Provider {
+	
+	@Test(dataProvider="testdata")
+	public void logintestcase(int id,String username,String pwd){
+		System.out.println("id>>"+id+"username>>"+username+"pwd>>"+pwd);
+	}
+	
+	
+	@DataProvider(name = "testdata")
+	public Object[][] logintestdata(){
+		
+		return new Object[][]{
+			{1,"Atul","At@1234"},
+			{2,"kiran","k@1234"},
+			{3,"Sumit","s123456"}
+		};
+		
+	}
+	
+
+}
