@@ -1,0 +1,65 @@
+package com.jbk.assert_;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class Assert_Class {
+	WebDriver driver;
+	@BeforeClass
+	public void configsetting(){
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("file:///D:/Selenium%20Software/Offline%20Website/index.html");
+	}
+	
+	@Test(priority=1)
+	public void emailid(){
+		System.out.println("You are in emailid");
+		WebElement email_element=driver.findElement(By.xpath("//input[@id='email']"));
+		email_element.sendKeys("abc");
+	}
+	
+	@Test(priority=2)
+	public void password(){
+		WebElement pass_element=driver.findElement(By.xpath("//input[@id='password']"));
+		pass_element.sendKeys("abc@1234");		
+	}
+	
+	@Test(priority=3)
+	public void click(){
+		WebElement click_element=driver.findElement(By.xpath("//button[starts-with(text(),'Sign In')]"));
+		click_element.click();
+		
+		WebElement emailerror_Element=driver.findElement(By.xpath("//div[@id='email_error']"));
+		String Actual_emailerror=emailerror_Element.getText();
+		System.out.println(Actual_emailerror);
+		String Expected_Emailerror="Please enter email as kiran@gmail.com";
+		
+		WebElement passworderror_Element=driver.findElement(By.xpath("//div[@id='password_error']"));
+		String Actual_passworderror=passworderror_Element.getText();
+		System.out.println(Actual_passworderror);
+		String Expected_Passworderror="Please enter password 123456";
+		//System.out.println("----eforeAssertClassExecution-----");
+		//Hard Assert
+		//Assert.assertEquals(Actual_emailerror, Expected_Emailerror);
+		//System.out.println("----AfterAssertClassExecution-----");
+		
+		//Soft Assert
+		SoftAssert softassert=new SoftAssert();
+		softassert.assertEquals(Actual_emailerror, Expected_Emailerror);
+		softassert.assertEquals(Actual_passworderror, Expected_Passworderror);
+		softassert.assertAll();
+		
+	
+		
+		//Assert.assertEquals(Actual_passworderror, Expected_Passworderror);
+		
+	}
+	
+
+}
