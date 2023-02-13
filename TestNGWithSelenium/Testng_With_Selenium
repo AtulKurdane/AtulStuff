@@ -1,0 +1,38 @@
+package com.jbk.framework;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Demo_Test {
+	WebDriver driver;
+	@BeforeClass
+	public void configsetting(){
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("file:///D:/Selenium%20Software/Offline%20Website/index.html");
+	}
+	
+	@Test(priority=1)
+	public void emailid(){
+		System.out.println("You are in emailid");
+		WebElement email_element=driver.findElement(By.xpath("//input[@id='email']"));
+		email_element.sendKeys("abc");
+	}
+	
+	@Test(priority=2)
+	public void password(){
+		WebElement pass_element=driver.findElement(By.xpath("//input[@id='password']"));
+		pass_element.sendKeys("abc@1234");
+	}
+	
+	@Test
+	public void click(){
+		WebElement click_element=driver.findElement(By.xpath("//button[starts-with(text(),'Sign In')]"));
+		click_element.click();
+	}
+
+}
